@@ -1,31 +1,50 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Form Gönderme - Sesli Mesaj</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      padding: 20px;
-      text-align: center;
+<meta charset="UTF-8" />
+<title>Giriş Formu</title>
+<style>
+  #mesajKutusu {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background: #d4edda;
+    color: #155724;
+    border: 2px solid #155724;
+    border-radius: 8px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<form id="myForm" action="#" method="post">
+  <input type="text" placeholder="Kullanıcı Adı" required /><br />
+  <input type="password" placeholder="Şifre" required /><br />
+  <button type="submit">Giriş Yap</button>
+</form>
+
+<div id="mesajKutusu">✅ Teşekkürler! Form başarıyla gönderildi.<br>Asıl siteye dön</div>
+
+<script>
+  document.getElementById("myForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Mesaj göster
+    const mesaj = document.getElementById("mesajKutusu");
+    mesaj.style.display = "block";
+
+    // Sesli mesaj
+    const metin = "Teşekkürler. Form başarıyla gönderildi.";
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(metin);
+      utterance.lang = 'tr-TR';
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert(metin);
     }
-    form {
-      margin-bottom: 20px;
-    }
-    input[type="text"], input[type="email"] {
-      padding: 10px;
-      width: 250px;
-      margin: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      padding: 10px 20px;
-      background: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
+  });
+</script>
+
+</body>
+</html>
