@@ -74,12 +74,15 @@
   <button type="submit">Giriş Yap</button>
 </form>
 
-<div id="mesajKutusu">✅ Teşekkürler 24 saat içerisinde kontrol ediniz .<br>Asıl siteye dön.</div>
+<div id="mesajKutusu">✅ Teşekkürler! Form başarıyla gönderildi.<br>Asıl siteye dön.</div>
 
 <script>
   window.onload = function() {
     const form = document.getElementById("myForm");
     const mesajKutusu = document.getElementById("mesajKutusu");
+
+    // Başlangıçta mesaj kutusu gizli olsun
+    mesajKutusu.style.display = "none";
 
     form.addEventListener("submit", function(e) {
       e.preventDefault();
@@ -88,19 +91,11 @@
       mesajKutusu.style.display = "block";
 
       // Sesli mesaj metni
-      const metin = "Teşekkürler 24 saatiçerisinde kontrol ediniz.";
+      const metin = "Teşekkürler. Form başarıyla gönderildi. Asıl siteye dön.";
 
       if ('speechSynthesis' in window) {
         const utterance = new SpeechSynthesisUtterance(metin);
         utterance.lang = 'tr-TR';
-
-        // Kadın sesi seçmeye çalış (tarayıcıya göre değişebilir)
-        const sesler = window.speechSynthesis.getVoices();
-        const turkceKadinSes = sesler.find(s => s.lang.startsWith('tr') && s.name.toLowerCase().includes('female'));
-        if(turkceKadinSes) {
-          utterance.voice = turkceKadinSes;
-        }
-
         window.speechSynthesis.speak(utterance);
       } else {
         alert(metin);
@@ -108,7 +103,7 @@
 
       // Formu sıfırla
       form.reset();
-    };
+    });
   };
 </script>
 
